@@ -9,18 +9,51 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as TransparencyRouteImport } from './routes/transparency'
+import { Route as StoriesRouteImport } from './routes/stories'
+import { Route as SponsorAChildRouteImport } from './routes/sponsor-a-child'
 import { Route as ProgrammesRouteImport } from './routes/programmes'
+import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as OrganizationsRouteImport } from './routes/organizations'
 import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as AnnualReportsRouteImport } from './routes/annual-reports'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OrganizationsIndexRouteImport } from './routes/organizations.index'
 import { Route as OrganizationsSlugRouteImport } from './routes/organizations.$slug'
 
+const VolunteerRoute = VolunteerRouteImport.update({
+  id: '/volunteer',
+  path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransparencyRoute = TransparencyRouteImport.update({
+  id: '/transparency',
+  path: '/transparency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoriesRoute = StoriesRouteImport.update({
+  id: '/stories',
+  path: '/stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorAChildRoute = SponsorAChildRouteImport.update({
+  id: '/sponsor-a-child',
+  path: '/sponsor-a-child',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammesRoute = ProgrammesRouteImport.update({
   id: '/programmes',
   path: '/programmes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerRoute = PartnerRouteImport.update({
+  id: '/partner',
+  path: '/partner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrganizationsRoute = OrganizationsRouteImport.update({
@@ -33,9 +66,24 @@ const ImpactRoute = ImpactRouteImport.update({
   path: '/impact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnnualReportsRoute = AnnualReportsRouteImport.update({
+  id: '/annual-reports',
+  path: '/annual-reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -62,19 +110,35 @@ const OrganizationsSlugRoute = OrganizationsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/annual-reports': typeof AnnualReportsRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/impact': typeof ImpactRoute
   '/organizations': typeof OrganizationsRouteWithChildren
+  '/partner': typeof PartnerRoute
   '/programmes': typeof ProgrammesRoute
+  '/sponsor-a-child': typeof SponsorAChildRoute
+  '/stories': typeof StoriesRoute
+  '/transparency': typeof TransparencyRoute
+  '/volunteer': typeof VolunteerRoute
   '/organizations/$slug': typeof OrganizationsSlugRoute
   '/organizations/': typeof OrganizationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/annual-reports': typeof AnnualReportsRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/impact': typeof ImpactRoute
+  '/partner': typeof PartnerRoute
   '/programmes': typeof ProgrammesRoute
+  '/sponsor-a-child': typeof SponsorAChildRoute
+  '/stories': typeof StoriesRoute
+  '/transparency': typeof TransparencyRoute
+  '/volunteer': typeof VolunteerRoute
   '/organizations/$slug': typeof OrganizationsSlugRoute
   '/organizations': typeof OrganizationsIndexRoute
 }
@@ -82,10 +146,18 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/annual-reports': typeof AnnualReportsRoute
   '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/impact': typeof ImpactRoute
   '/organizations': typeof OrganizationsRouteWithChildren
+  '/partner': typeof PartnerRoute
   '/programmes': typeof ProgrammesRoute
+  '/sponsor-a-child': typeof SponsorAChildRoute
+  '/stories': typeof StoriesRoute
+  '/transparency': typeof TransparencyRoute
+  '/volunteer': typeof VolunteerRoute
   '/organizations/$slug': typeof OrganizationsSlugRoute
   '/organizations/': typeof OrganizationsIndexRoute
 }
@@ -94,29 +166,53 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/annual-reports'
     | '/community'
+    | '/contact'
+    | '/donate'
     | '/impact'
     | '/organizations'
+    | '/partner'
     | '/programmes'
+    | '/sponsor-a-child'
+    | '/stories'
+    | '/transparency'
+    | '/volunteer'
     | '/organizations/$slug'
     | '/organizations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/annual-reports'
     | '/community'
+    | '/contact'
+    | '/donate'
     | '/impact'
+    | '/partner'
     | '/programmes'
+    | '/sponsor-a-child'
+    | '/stories'
+    | '/transparency'
+    | '/volunteer'
     | '/organizations/$slug'
     | '/organizations'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/annual-reports'
     | '/community'
+    | '/contact'
+    | '/donate'
     | '/impact'
     | '/organizations'
+    | '/partner'
     | '/programmes'
+    | '/sponsor-a-child'
+    | '/stories'
+    | '/transparency'
+    | '/volunteer'
     | '/organizations/$slug'
     | '/organizations/'
   fileRoutesById: FileRoutesById
@@ -124,19 +220,62 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AnnualReportsRoute: typeof AnnualReportsRoute
   CommunityRoute: typeof CommunityRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
   ImpactRoute: typeof ImpactRoute
   OrganizationsRoute: typeof OrganizationsRouteWithChildren
+  PartnerRoute: typeof PartnerRoute
   ProgrammesRoute: typeof ProgrammesRoute
+  SponsorAChildRoute: typeof SponsorAChildRoute
+  StoriesRoute: typeof StoriesRoute
+  TransparencyRoute: typeof TransparencyRoute
+  VolunteerRoute: typeof VolunteerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/volunteer': {
+      id: '/volunteer'
+      path: '/volunteer'
+      fullPath: '/volunteer'
+      preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transparency': {
+      id: '/transparency'
+      path: '/transparency'
+      fullPath: '/transparency'
+      preLoaderRoute: typeof TransparencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stories': {
+      id: '/stories'
+      path: '/stories'
+      fullPath: '/stories'
+      preLoaderRoute: typeof StoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsor-a-child': {
+      id: '/sponsor-a-child'
+      path: '/sponsor-a-child'
+      fullPath: '/sponsor-a-child'
+      preLoaderRoute: typeof SponsorAChildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programmes': {
       id: '/programmes'
       path: '/programmes'
       fullPath: '/programmes'
       preLoaderRoute: typeof ProgrammesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner': {
+      id: '/partner'
+      path: '/partner'
+      fullPath: '/partner'
+      preLoaderRoute: typeof PartnerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/organizations': {
@@ -153,11 +292,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/community': {
       id: '/community'
       path: '/community'
       fullPath: '/community'
       preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/annual-reports': {
+      id: '/annual-reports'
+      path: '/annual-reports'
+      fullPath: '/annual-reports'
+      preLoaderRoute: typeof AnnualReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -208,10 +368,18 @@ const OrganizationsRouteWithChildren = OrganizationsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AnnualReportsRoute: AnnualReportsRoute,
   CommunityRoute: CommunityRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
   ImpactRoute: ImpactRoute,
   OrganizationsRoute: OrganizationsRouteWithChildren,
+  PartnerRoute: PartnerRoute,
   ProgrammesRoute: ProgrammesRoute,
+  SponsorAChildRoute: SponsorAChildRoute,
+  StoriesRoute: StoriesRoute,
+  TransparencyRoute: TransparencyRoute,
+  VolunteerRoute: VolunteerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
