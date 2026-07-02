@@ -1,48 +1,77 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, HandHeart, Users, PlayCircle, ArrowRight, GraduationCap, Utensils, Home as HomeIcon, Droplets, Sprout, Church, Baby, Accessibility, HeartHandshake, MapPin, ShieldCheck, FileText, Video, LineChart } from "lucide-react";
+import { ArrowRight, CheckCircle2, Target, Eye, Sparkles, Users, TrendingUp, Award, Rocket, Building2, GraduationCap, Landmark, Cpu, Home as HomeIcon, ShieldCheck, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PlaceholderImage } from "@/components/site/PlaceholderImage";
-import { CTABand } from "@/components/site/CTABand";
+import heroImg from "@/assets/hero.jpg.asset.json";
+import trainingImg from "@/assets/training.jpg.asset.json";
+import workshopImg from "@/assets/workshop.jpg.asset.json";
+import conferenceImg from "@/assets/conference.jpg.asset.json";
+import teamImg from "@/assets/team.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "54 Global Ltd — We Don't Train. We Transform." },
+      { name: "description", content: "Kenyan corporate training and consultancy firm transforming underperforming sales teams into high-impact, results-driven units across real estate, FMCG, finance and more." },
+      { property: "og:title", content: "54 Global Ltd — Sales Transformation Partner" },
+      { property: "og:description", content: "Africa's most impactful sales transformation partner. Training, coaching, strategy, and leadership development." },
+      { property: "og:image", content: heroImg.url },
+    ],
+  }),
   component: Home,
 });
 
-const whoWeServe = [
-  { icon: Baby, title: "Vulnerable Children", stat: "1,500+ supported", copy: "Education, meals, uniforms, books, mentorship, and hope." },
-  { icon: HeartHandshake, title: "Widows", stat: "350+ empowered", copy: "Business training, food support, counselling, financial empowerment." },
-  { icon: Users, title: "Orphans", stat: "Safe homes & schooling", copy: "Education sponsorship, healthcare, safe homes, mentorship." },
-  { icon: HomeIcon, title: "Street Children", stat: "Rescue & rehabilitation", copy: "Rescue, rehabilitation, education, and life skills training." },
-  { icon: GraduationCap, title: "Youth", stat: "Leaders in the making", copy: "Leadership, entrepreneurship, employment skills, sports, mentorship." },
-  { icon: Accessibility, title: "Persons with Disabilities", stat: "Inclusive programmes", copy: "Inclusive education, assistive devices, empowerment opportunities." },
-  { icon: Utensils, title: "Vulnerable Families", stat: "Emergency & long-term care", copy: "Food assistance, rent support, healthcare, small business grants." },
+const coreValues = [
+  { title: "Excellence", body: "We commit to delivering high-quality training solutions." },
+  { title: "Integrity", body: "Our engagements are built on honesty, trust, and transparency." },
+  { title: "Innovation", body: "We use cutting-edge sales methodologies and digital tools." },
+  { title: "Results-Oriented", body: "We measure our success by your business performance." },
+  { title: "Partnership", body: "We walk with our clients before, during, and after implementation." },
 ];
 
-const programmes = [
-  { icon: GraduationCap, emoji: "📚", title: "Education for Every Child", body: "School fees, uniforms, meals and mentorship for children who would otherwise be out of school." },
-  { icon: Utensils, emoji: "🍲", title: "Feed a Family", body: "Monthly food parcels for widows and vulnerable households across Nairobi and beyond." },
-  { icon: HeartHandshake, emoji: "❤️", title: "Widow Empowerment", body: "Skills training, seed capital, counselling and community for widows rebuilding their lives." },
-  { icon: Baby, emoji: "👶", title: "Child Sponsorship", body: "Monthly sponsorship pairing a child with a caring donor for education, health and hope." },
-  { icon: HomeIcon, emoji: "🏠", title: "Build a Better Home", body: "Safe, dignified housing and land access for families through Sinap Properties." },
-  { icon: Droplets, emoji: "💧", title: "Clean Water Initiative", body: "Wells, tanks and purification for schools and communities without safe water." },
-  { icon: Sprout, emoji: "🌱", title: "Sustainable Agriculture", body: "Seeds, training and smallholder farming for food security and family income." },
-  { icon: Users, emoji: "👩", title: "Women's Economic Empowerment", body: "Cooperatives, financial literacy, and market access for women in business." },
-  { icon: Church, emoji: "🙏", title: "Church & Community Outreach", body: "Medical camps, discipleship, worship, and community transformation through the local church." },
+const services = [
+  { title: "Sales Training & Capacity Building", body: "Customized, high-impact sales training programs designed to improve selling skills, confidence, and results — from prospecting to closing." },
+  { title: "Sales Performance Coaching", body: "Targeted coaching for individuals and teams to overcome sales plateaus, build momentum, and stay accountable to performance goals." },
+  { title: "Sales Strategy & Process Optimization", body: "We assess and refine your sales process to align with best practices, customer expectations, and evolving market dynamics." },
+  { title: "Sales Leadership Development", body: "We empower team leaders and sales managers with leadership skills, performance management tools, and coaching capabilities." },
+  { title: "Real Estate Sales Mastery", body: "Tailored training for real estate teams — relationship building, objection handling, and high-conversion closing techniques." },
+  { title: "Interactive Workshops & Seminars", body: "Engaging, action-oriented sessions that ignite motivation and provide practical tools for immediate sales improvement." },
 ];
 
-const stats = [
-  { value: "15,000+", label: "Lives Impacted" },
-  { value: "1,500+", label: "Children Supported" },
-  { value: "350+", label: "Widows Empowered" },
-  { value: "45", label: "Community Projects" },
-  { value: "12", label: "Schools Supported" },
-  { value: "250+", label: "Active Volunteers" },
+const deliveryModes = [
+  { title: "In-Person Training", body: "Face-to-face sessions on-site or at designated venues. Ideal for immersive workshops, roleplays, and hands-on coaching." },
+  { title: "Virtual Training (Live Online)", body: "Interactive live sessions via Zoom, Teams, or Google Meet — cost-effective, remote learning for distributed teams." },
+  { title: "Hybrid Training", body: "Flexible combination of in-person and online sessions for organizations with field and remote staff." },
+  { title: "On-the-Job Coaching", body: "One-on-one or small group coaching in the actual work environment. Real-time feedback, shadowing, and performance improvement." },
+  { title: "Workshops & Bootcamps", body: "High-energy, short-format 1-3 day intensive sessions addressing closing skills, lead generation, and objection handling." },
+  { title: "Customized Learning Journeys", body: "Tailor-made programs around your sales cycle, industry, and team structure — with assessments, tracking, and reviews." },
 ];
 
-const stories = [
-  { name: "Faith", tag: "Sponsored Student", copy: "An orphan whose education at Hallel School has inspired her dream of becoming a doctor." },
-  { name: "Mama Jane", tag: "Widow Entrepreneur", copy: "Received a sewing machine and now supports her family through tailoring in her community." },
-  { name: "Brian", tag: "Former Street Child", copy: "Returned to school through our rescue programme and now hopes to become an engineer." },
+const industries = [
+  { icon: HomeIcon, title: "Real Estate", body: "Mastering Property Sales. Prospect effectively, build trust, handle objections, and close high-value property deals." },
+  { icon: Building2, title: "FMCG & Retail", body: "Fast-Paced Sales Mastery. Train frontline teams to deliver product knowledge, upsell, and drive in-store or field performance." },
+  { icon: GraduationCap, title: "Education Services", body: "Enrolment & Admissions Acceleration. Value-based selling for private schools, academies, and education consultants." },
+  { icon: Cpu, title: "Technology & SaaS", body: "Simplifying Complex Sales. Understand customer pain points, present solutions clearly, and shorten the B2B/B2C sales cycle." },
+  { icon: ShieldCheck, title: "Insurance", body: "Driving Policy Conversions. Persuasive communication, needs-based selling, and follow-up techniques that boost conversions." },
+  { icon: Landmark, title: "Financial Services", body: "Consultative Selling for Growth. Client engagement, needs analysis, and relationship-based selling for banking and investment." },
+];
+
+const benefits = [
+  { title: "Increased Sales Performance", body: "Your team will sell more, close faster, and consistently hit or exceed targets." },
+  { title: "Higher Team Confidence & Motivation", body: "We build skills, plus the mindset required to perform under pressure." },
+  { title: "Customized Sales Systems", body: "Processes, scripts, trackers, and tools that standardize excellence across your team." },
+  { title: "Stronger Sales Leadership", body: "Coaching, tracking, and leadership tools for sustainable performance." },
+  { title: "Better Lead Conversion", body: "Handle objections, qualify leads, and close deals — improving marketing ROI." },
+  { title: "Improved Accountability", body: "Performance dashboards, goal-setting templates, and follow-ups build responsibility." },
+  { title: "Faster Onboarding", body: "Sales playbooks and structured training make new hires productive faster." },
+  { title: "Long-Term Sales Growth", body: "Lasting transformation — habits and systems that deliver continued success." },
+];
+
+const future = [
+  { icon: Rocket, title: "Scaling Regional Impact", body: "Expanding across Kenya and East Africa with localized training that speaks to market realities." },
+  { icon: Cpu, title: "Technology-Enabled Learning", body: "Digital platforms offering flexible, self-paced, and blended learning for modern sales teams." },
+  { icon: Award, title: "Sales Excellence Centers", body: "Physical and virtual hubs to support ongoing learning, coaching, and industry collaboration." },
+  { icon: Users, title: "Strategic Partnerships", body: "Collaborations with associations, corporates, and development partners to deepen impact." },
+  { icon: TrendingUp, title: "Data-Driven Outcomes", body: "Analytics and performance dashboards that track ROI and guide coaching decisions in real time." },
 ];
 
 function Home() {
@@ -51,258 +80,244 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <PlaceholderImage label="Cinematic hero video · children, worship, community" aspect="hero" tone="green" className="h-full rounded-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.22_0.03_155/0.4)_0%,oklch(0.22_0.03_155/0.75)_100%)]" />
+          <img src={heroImg.url} alt="Kenyan cityscape" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.2_0.02_25/0.55)_0%,oklch(0.2_0.02_25/0.9)_100%)]" />
         </div>
         <div className="relative container-page py-24 md:py-36 lg:py-44 text-primary-foreground">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-accent mb-6">
-              <span className="h-px w-10 bg-accent" /> A Christian community transformation movement
+              <span className="h-px w-10 bg-accent" /> 54 Global Ltd · Kenya
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] font-medium">
-              Restoring Hope.<br />Transforming Communities.<br />
-              <span className="text-accent">Building Africa's Future.</span>
+              We Don't Train.<br />
+              <span className="text-accent">We Transform.</span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-primary-foreground/85 max-w-2xl leading-relaxed">
-              54 Global Afrikan Incorporated empowers vulnerable children, widows, youth, families, and communities through education, faith, economic empowerment, and sustainable development.
+              A Kenyan corporate training and consultancy firm specializing in transforming underperforming sales teams into high-impact, results-driven units — for real estate, FMCG, financial services, and beyond.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg" className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link to="/sponsor-a-child"><Heart className="h-4 w-4" /> Sponsor a Child</Link>
+                <Link to="/contact">Book a Consultation <ArrowRight className="h-4 w-4" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="gap-2 border-primary-foreground/40 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/15">
-                <Link to="/volunteer">Become a Volunteer</Link>
-              </Button>
-              <Button asChild size="lg" variant="ghost" className="gap-2 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/donate"><HandHeart className="h-4 w-4" /> Donate Today</Link>
+                <Link to="/programmes">Our Services</Link>
               </Button>
             </div>
-            <button className="mt-10 inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-accent transition-colors">
-              <PlayCircle className="h-5 w-5" /> Watch our story
-            </button>
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-primary-foreground/80">
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-accent" /> Tailored & impactful trainings</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-accent" /> Integrity and customer focus</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MISSION */}
+      {/* INTRODUCTION */}
       <section className="py-20 md:py-28 border-b border-border/60">
-        <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.3fr] items-center">
+        <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.1fr] items-center">
+          <img src={trainingImg.url} alt="Customer service training session" className="rounded-xl shadow-[var(--shadow-lift)] w-full h-auto object-cover" />
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Our Mission</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Introduction</div>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
-              Long-term transformation through faith, education, enterprise, and service.
+              Transforming dormant sales departments into high-performing teams.
             </h2>
-          </div>
-          <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
-            <p>
-              We exist to see communities across Kenya restored — where every child learns, every widow thrives, every family has dignity, and every neighbourhood knows the love of Christ in tangible ways.
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Initially founded as a real estate solutions provider, 54 Global has evolved to serve a broader clientele including FMCG distributors, household product suppliers, construction companies, and other product-based businesses.
             </p>
-            <p>
-              Working through a family of organizations — church, school, foundation, properties, and mission travel — we deliver holistic, measurable, and lasting change.
-            </p>
-            <div className="pt-2">
-              <Button asChild variant="link" className="gap-1 px-0 text-primary">
-                <Link to="/about">Read our story <ArrowRight className="h-4 w-4" /></Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHO WE SERVE */}
-      <section className="py-20 md:py-28 bg-secondary/40">
-        <div className="container-page">
-          <div className="max-w-2xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Who We Serve</div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">The people at the heart of our work.</h2>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {whoWeServe.map((g) => (
-              <div key={g.title} className="group bg-card border border-border rounded-xl p-6 hover:shadow-[var(--shadow-lift)] transition-shadow">
-                <div className="flex items-start justify-between mb-5">
-                  <div className="h-11 w-11 rounded-full bg-primary/10 text-primary grid place-items-center"><g.icon className="h-5 w-5" /></div>
-                  <span className="text-xs uppercase tracking-wider text-accent-foreground bg-accent/30 px-2.5 py-1 rounded-full">{g.stat}</span>
-                </div>
-                <h3 className="font-serif text-xl font-semibold">{g.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{g.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROGRAMMES */}
-      <section className="py-20 md:py-28">
-        <div className="container-page">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
-            <div className="max-w-2xl">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Our Programmes</div>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Nine long-running programmes, measurable outcomes.</h2>
-            </div>
-            <Button asChild variant="outline"><Link to="/programmes">All programmes <ArrowRight className="h-4 w-4 ml-1" /></Link></Button>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {programmes.map((p) => (
-              <Link key={p.title} to="/programmes" className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-[var(--shadow-lift)] transition-shadow">
-                <PlaceholderImage label={p.title} aspect="video" tone={Math.random() > 0.5 ? "green" : "earth"} className="rounded-none" />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-xs text-accent font-medium uppercase tracking-wider mb-2">
-                    <span className="text-base">{p.emoji}</span> Programme
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.body}</p>
-                  <div className="mt-4 text-sm text-primary group-hover:gap-2 transition-all inline-flex items-center gap-1 font-medium">Learn more <ArrowRight className="h-3.5 w-3.5" /></div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SPONSORSHIP FEATURE */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_15%_50%,oklch(0.76_0.14_75),transparent_60%)]" />
-        <div className="container-page relative grid gap-14 lg:grid-cols-2 items-center">
-          <PlaceholderImage label="Sponsored child · classroom portrait" aspect="portrait" tone="gold" className="max-w-md" />
-          <div>
-            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-5">Child Sponsorship Programme</div>
-            <h2 className="font-serif text-4xl md:text-5xl leading-tight">$30 a month changes a child's life forever.</h2>
-            <p className="mt-6 text-lg text-primary-foreground/85 leading-relaxed max-w-xl">
-              Your monthly sponsorship covers education, school meals, uniforms, healthcare and counselling — plus progress reports, photographs and personal letters from your child.
-            </p>
-            <ul className="mt-8 grid grid-cols-2 gap-3 max-w-md text-sm text-primary-foreground/90">
-              {["Education","School meals","Uniforms","Healthcare","Counselling","Progress reports","Photographs","Personal letters"].map((i) => (
-                <li key={i} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />{i}</li>
-              ))}
+            <ul className="mt-6 space-y-3 text-base">
+              <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" /> Committed to tailored and impactful trainings</li>
+              <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" /> Operate with integrity and customer focus</li>
             </ul>
-            <div className="mt-10">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
-                <Link to="/sponsor-a-child"><Heart className="h-4 w-4" /> Sponsor a Child Today</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* IMPACT DASHBOARD */}
+      {/* MISSION & VISION */}
+      <section className="py-20 md:py-28 bg-secondary/40">
+        <div className="container-page grid gap-8 md:grid-cols-2">
+          <div className="bg-card border border-border rounded-xl p-10">
+            <div className="h-12 w-12 rounded-full bg-primary/10 text-primary grid place-items-center mb-6"><Target className="h-6 w-6" /></div>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-3">Our Mission</div>
+            <p className="font-serif text-2xl md:text-3xl leading-snug">
+              To design and deliver transformational training and business strategies that convert dormant sales departments into high-performing teams.
+            </p>
+          </div>
+          <div className="bg-primary text-primary-foreground rounded-xl p-10">
+            <div className="h-12 w-12 rounded-full bg-accent/20 text-accent grid place-items-center mb-6"><Eye className="h-6 w-6" /></div>
+            <div className="text-xs uppercase tracking-[0.2em] text-accent font-medium mb-3">Our Vision</div>
+            <p className="font-serif text-2xl md:text-3xl leading-snug">
+              To be Africa's most impactful sales transformation partner, equipping businesses with the tools and mindset to thrive in competitive markets.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CORE VALUES */}
       <section className="py-20 md:py-28">
         <div className="container-page">
-          <div className="max-w-2xl mb-12">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Impact Dashboard</div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">The measurable difference your generosity makes.</h2>
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Core Values</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">The values that define us.</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-card border border-border rounded-xl p-6 text-center">
-                <div className="font-serif text-3xl md:text-4xl text-primary font-semibold">{s.value}</div>
-                <div className="mt-2 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {coreValues.map((v) => (
+              <div key={v.title} className="bg-card border border-border rounded-xl p-6 hover:shadow-[var(--shadow-lift)] transition-shadow">
+                <Sparkles className="h-5 w-5 text-accent mb-4" />
+                <h3 className="font-serif text-lg font-semibold">{v.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{v.body}</p>
               </div>
             ))}
           </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
-            <PlaceholderImage label="Interactive Kenya impact map · project GPS locations" aspect="wide" tone="green" />
-            <div className="bg-secondary rounded-xl p-8 flex flex-col justify-between">
-              <div>
-                <MapPin className="h-6 w-6 text-primary" />
-                <h3 className="mt-4 font-serif text-2xl">Projects across Kenya</h3>
-                <p className="mt-2 text-sm text-muted-foreground">See exactly where our schools, homes, farms, and outreach programmes are transforming communities.</p>
-              </div>
-              <Button asChild variant="outline" className="mt-6 self-start"><Link to="/impact">Explore the map <ArrowRight className="h-4 w-4 ml-1" /></Link></Button>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* GIVING CAMPAIGNS */}
+      {/* SERVICES */}
       <section className="py-20 md:py-28 bg-secondary/40">
         <div className="container-page">
           <div className="max-w-2xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Help Us Change a Life</div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Active giving campaigns.</h2>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Our Services & Expertise</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Practical programmes for real sales results.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              { title: "Build a Classroom", goal: 18000, raised: 12400, unit: "$", copy: "New classroom block at Hallel School for 40 additional students." },
-              { title: "Feed a Family", goal: 5000, raised: 3120, unit: "$", copy: "Monthly food parcels for widows and vulnerable households." },
-              { title: "School Uniform Package", goal: 4000, raised: 1550, unit: "$", copy: "Uniforms, shoes and school supplies for 100 sponsored students." },
-              { title: "Emergency Medical Fund", goal: 10000, raised: 6800, unit: "$", copy: "Life-saving treatment for children and widows in medical crisis." },
-              { title: "Bible Distribution", goal: 2000, raised: 1240, unit: "$", copy: "250 Bibles for churches and community outreach in rural Kenya." },
-              { title: "Girls' Dignity Project", goal: 3500, raised: 2100, unit: "$", copy: "Reusable sanitary kits and dignity training for 500 schoolgirls." },
-            ].map((c) => {
-              const pct = Math.min(100, Math.round((c.raised / c.goal) * 100));
-              return (
-                <div key={c.title} className="bg-card border border-border rounded-xl overflow-hidden flex flex-col">
-                  <PlaceholderImage label={c.title} aspect="video" tone="cream" className="rounded-none" />
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="font-serif text-xl font-semibold">{c.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground flex-1">{c.copy}</p>
-                    <div className="mt-5">
-                      <div className="flex justify-between text-xs mb-2"><span className="font-medium">{c.unit}{c.raised.toLocaleString()} raised</span><span className="text-muted-foreground">of {c.unit}{c.goal.toLocaleString()}</span></div>
-                      <div className="h-1.5 rounded-full bg-secondary overflow-hidden"><div className="h-full bg-accent" style={{ width: `${pct}%` }} /></div>
-                      <div className="mt-1 text-xs text-muted-foreground">{pct}% funded</div>
-                    </div>
-                    <Button asChild size="sm" className="mt-5 self-start"><Link to="/donate">Give to this campaign</Link></Button>
-                  </div>
-                </div>
-              );
-            })}
+            {services.map((s) => (
+              <div key={s.title} className="bg-card border border-border rounded-xl p-6 hover:shadow-[var(--shadow-lift)] transition-shadow">
+                <div className="text-accent font-serif text-xl mb-2">◆</div>
+                <h3 className="font-serif text-xl font-semibold">{s.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <img src={workshopImg.url} alt="Training session in progress" className="rounded-xl w-full h-72 object-cover" />
+            <img src={conferenceImg.url} alt="Corporate workshop" className="rounded-xl w-full h-72 object-cover" />
           </div>
         </div>
       </section>
 
-      {/* STORIES */}
+      {/* DELIVERY MODES */}
       <section className="py-20 md:py-28">
         <div className="container-page">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
-            <div className="max-w-2xl">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Real Stories of Transformation</div>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">The faces behind the numbers.</h2>
-            </div>
-            <Button asChild variant="outline"><Link to="/stories">All stories <ArrowRight className="h-4 w-4 ml-1" /></Link></Button>
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Our Delivery Mode</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Flexible, practical, results-oriented.</h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">Whether your team is in the office, in the field, or spread across multiple regions, we ensure every session is impactful and engaging.</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {stories.map((s) => (
-              <div key={s.name} className="group">
-                <PlaceholderImage label={`Portrait · ${s.name}`} aspect="portrait" tone={s.name === "Faith" ? "green" : s.name === "Mama Jane" ? "gold" : "earth"} />
-                <div className="mt-5">
-                  <div className="text-xs uppercase tracking-wider text-accent font-medium">{s.tag}</div>
-                  <h3 className="mt-1 font-serif text-2xl">Meet {s.name}</h3>
-                  <p className="mt-2 text-muted-foreground leading-relaxed">{s.copy}</p>
-                  <Link to="/stories" className="mt-3 inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">Read her story <ArrowRight className="h-3.5 w-3.5" /></Link>
-                </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {deliveryModes.map((d) => (
+              <div key={d.title} className="border-l-2 border-accent pl-6 py-2">
+                <h3 className="font-serif text-lg font-semibold">{d.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TRANSPARENCY STRIP */}
-      <section className="py-20 bg-primary/5 border-y border-border/60">
-        <div className="container-page grid gap-10 lg:grid-cols-[1.2fr_2fr] items-center">
+      {/* INDUSTRIES */}
+      <section className="py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_85%_20%,oklch(0.62_0.22_27),transparent_55%)]" />
+        <div className="container-page relative">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent font-medium mb-4">Industries We Serve</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Industry-specific sales training solutions.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {industries.map((i) => (
+              <div key={i.title} className="bg-primary-foreground/5 border border-primary-foreground/15 backdrop-blur rounded-xl p-6">
+                <i.icon className="h-6 w-6 text-accent mb-4" />
+                <h3 className="font-serif text-xl">{i.title}</h3>
+                <p className="mt-2 text-sm text-primary-foreground/80 leading-relaxed">{i.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="py-20 md:py-28">
+        <div className="container-page">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Benefits to Your Company</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Partnering with us means investing in results — not just training.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((b, idx) => (
+              <div key={b.title} className="bg-card border border-border rounded-xl p-6">
+                <div className="font-serif text-3xl text-accent font-semibold mb-3">{String(idx + 1).padStart(2, "0")}</div>
+                <h3 className="font-serif text-lg font-semibold">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LEADERSHIP */}
+      <section className="py-20 md:py-28 bg-secondary/40">
+        <div className="container-page grid gap-14 lg:grid-cols-[1.1fr_1fr] items-center">
           <div>
-            <ShieldCheck className="h-8 w-8 text-primary" />
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl leading-tight">Transparency you can trust.</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed max-w-md">Annual reports, audited accounts, project photographs, and impact updates — everything open, everything traceable.</p>
-            <Button asChild variant="outline" className="mt-6"><Link to="/transparency">Transparency Centre <ArrowRight className="h-4 w-4 ml-1" /></Link></Button>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Our Team & Leadership</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Passionate professionals driving our mission forward.</h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Our strength lies in the people behind our work — sales professionals, experienced trainers, and business strategists with a proven track record in sales transformation and industry-specific training.
+            </p>
+            <div className="mt-8 space-y-6">
+              <div>
+                <h3 className="font-serif text-xl">Robert Wekesa Simiyu</h3>
+                <div className="text-sm text-accent font-medium">Founder & Lead Trainer</div>
+                <p className="mt-2 text-muted-foreground text-sm leading-relaxed">Over 10 years of experience in real estate and insurance sales, leading high-performing teams and managing multimillion-shilling sales portfolios.</p>
+              </div>
+              <div>
+                <h3 className="font-serif text-xl">Facilitators & Coaches</h3>
+                <p className="mt-2 text-muted-foreground text-sm leading-relaxed">A network of trainers and performance coaches drawn from real estate, retail, finance and education — handpicked to inspire action and deliver lasting results.</p>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: FileText, label: "Annual Reports" },
-              { icon: LineChart, label: "Audited Accounts" },
-              { icon: Video, label: "Video Updates" },
-              { icon: MapPin, label: "GPS Locations" },
-            ].map((i) => (
-              <div key={i.label} className="bg-card border border-border rounded-xl p-5 text-center">
-                <i.icon className="h-6 w-6 mx-auto text-primary" />
-                <div className="mt-3 text-sm font-medium">{i.label}</div>
+          <img src={teamImg.url} alt="54 Global leadership" className="rounded-xl w-full h-auto object-cover shadow-[var(--shadow-lift)]" />
+        </div>
+      </section>
+
+      {/* FUTURE */}
+      <section className="py-20 md:py-28">
+        <div className="container-page">
+          <div className="max-w-2xl mb-14">
+            <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">Looking Ahead</div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">Shaping the future of sales performance across Africa.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {future.map((f) => (
+              <div key={f.title} className="bg-card border border-border rounded-xl p-6">
+                <f.icon className="h-6 w-6 text-accent mb-4" />
+                <h3 className="font-serif text-lg font-semibold">{f.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTABand />
-      <div className="h-20" />
+      {/* CONTACT / CTA */}
+      <section className="py-20 md:py-28 bg-primary text-primary-foreground">
+        <div className="container-page grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
+          <div>
+            <h2 className="font-serif text-3xl md:text-5xl leading-tight">Don't wish for a better sales team — train one.</h2>
+            <p className="mt-6 text-lg text-primary-foreground/85 max-w-xl">If your sales team isn't performing at 100%, you're leaving money on the table. We're here to change that.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90"><Link to="/contact">Talk to Us</Link></Button>
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/15"><Link to="/programmes">Explore Programmes</Link></Button>
+            </div>
+          </div>
+          <div className="bg-primary-foreground/5 border border-primary-foreground/15 rounded-xl p-8 space-y-4 text-sm">
+            <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-accent mt-0.5 shrink-0" /><div><div className="font-medium">Head Office · Nairobi</div><div className="text-primary-foreground/75">Westlands, Nairobi, Kenya</div></div></div>
+            <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-accent mt-0.5 shrink-0" /><div><div className="font-medium">Kisumu Office</div><div className="text-primary-foreground/75">Jubilee House, Oginga Odinga Street, Kisumu</div></div></div>
+            <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-accent mt-0.5 shrink-0" /><div><div className="font-medium">Mombasa Office</div><div className="text-primary-foreground/75">Links Road, Nyali, Mombasa</div></div></div>
+            <div className="flex items-start gap-3"><MapPin className="h-5 w-5 text-accent mt-0.5 shrink-0" /><div><div className="font-medium">Kakamega Office</div><div className="text-primary-foreground/75">Opposite County Government HQ, Kakamega Town</div></div></div>
+            <div className="pt-3 border-t border-primary-foreground/15 flex flex-col gap-2">
+              <a href="tel:+254742080666" className="inline-flex items-center gap-2 hover:text-accent"><Phone className="h-4 w-4" /> +254 742 080 666</a>
+              <a href="mailto:info@54global.com" className="inline-flex items-center gap-2 hover:text-accent"><Mail className="h-4 w-4" /> info@54global.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
