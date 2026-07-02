@@ -4,7 +4,11 @@ import { Section } from "@/components/site/Section";
 import { CTABand } from "@/components/site/CTABand";
 import { PlaceholderImage } from "@/components/site/PlaceholderImage";
 import { Button } from "@/components/ui/button";
-import { CalendarCheck, Video, HandHeart, Heart, HandHelping, Globe2, Gift } from "lucide-react";
+import { CalendarCheck, Video, HandHeart, Heart, HandHelping, Globe2, Gift, ArrowRight } from "lucide-react";
+
+type ExtraSection = { eyebrow?: string; title: string; blurb?: string; items: string[]; muted?: boolean };
+
+type Hero = { title: string; subtitle?: string; ctas?: string[] };
 
 type Org = {
   name: string;
@@ -12,6 +16,11 @@ type Org = {
   tagline: string;
   description: string;
   details: string[];
+  themeQuote?: string;
+  pageMenu?: string[];
+  hero?: Hero;
+  extraSections?: ExtraSection[];
+  closingNote?: { title: string; body: string };
   welcome?: { heading: string; body: string };
   ministries?: string[];
   outreach?: string[];
@@ -41,6 +50,20 @@ const orgs: Record<string, Org> = {
     tagline: "Where vulnerable children discover their God-given potential.",
     description: "Hallel School is a Christ-centred school offering quality education to sponsored, orphaned, and vulnerable children alongside fee-paying students — creating a diverse, faith-shaped learning community.",
     details: ["Pre-primary through secondary education", "Boarding facilities for orphaned students", "Character formation and biblical worldview", "Meals, healthcare, uniforms and books", "Sports, music, and creative arts programmes"],
+    themeQuote: "Raising Godly Leaders. Inspiring Academic Excellence.",
+    pageMenu: ["Home", "About", "Admissions", "Academics", "CBC Curriculum", "Student Life", "Parents", "Gallery", "Transport", "Fees", "News", "Contact"],
+    hero: {
+      title: "Welcome to Hallel School Nairobi",
+      subtitle: "Learning with Excellence. Growing with Character.",
+      ctas: ["Apply Now", "Book a School Tour", "Download Prospectus"],
+    },
+    extraSections: [
+      { eyebrow: "About", title: "Who We Are", items: ["Mission", "Vision", "Christian Values", "Why Parents Choose Us", "Our Teachers", "Our History"] },
+      { eyebrow: "Academics", title: "Grades & Levels", muted: true, items: ["Playgroup", "PP1", "PP2", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Junior School"] },
+      { eyebrow: "Student Life", title: "Beyond the Classroom", items: ["Sports", "Music", "Drama", "Swimming", "Computer Club", "Bible Club", "Art", "Debate", "Leadership", "Scouts", "Environmental Club"] },
+      { eyebrow: "Parents Portal", title: "Everything Parents Need", muted: true, items: ["Homework", "School Calendar", "Fee Payment", "Transport", "Newsletters", "Academic Reports", "Parent Handbook"] },
+      { eyebrow: "Sponsor A Child", title: "Change a Child's Story", blurb: "Many children in our community cannot afford quality education. Your sponsorship covers everything they need to thrive.", items: ["School Fees", "Uniform", "Books", "Meals", "Transport", "Healthcare", "Progress Reports", "Letters from the Child"] },
+    ],
   },
   "sinap-properties": {
     name: "Sinap Properties",
@@ -48,6 +71,22 @@ const orgs: Record<string, Org> = {
     tagline: "Dignified homes and affordable land for Kenyan families.",
     description: "Sinap Properties delivers safe, affordable housing and access to land — enabling vulnerable families to own homes and giving diaspora Kenyans a trusted partner to invest back home.",
     details: ["Affordable housing developments", "Land parcels for families and diaspora", "Community-integrated design", "Ethical, transparent transactions", "Partnerships with the Build a Better Home programme"],
+    themeQuote: "Creating Wealth Through Smart Property Investment.",
+    pageMenu: ["Home", "Projects", "Investment", "Buy Land", "Sell Property", "Property Management", "Construction", "Gallery", "FAQs", "Contact"],
+    hero: {
+      title: "Secure Your Future Through Land Ownership.",
+      ctas: ["Available Plots", "Book Site Visit", "Talk to an Advisor"],
+    },
+    extraSections: [
+      { eyebrow: "Services", title: "What We Offer", items: ["Land Sales", "Residential Plots", "Commercial Plots", "Affordable Housing", "Property Management", "Construction Consultancy", "Investment Advisory", "Title Processing", "Land Survey", "Property Valuation"] },
+      { eyebrow: "Current Projects", title: "Where We're Building", muted: true, items: ["Kamulu", "Athi River", "Kitengela", "Machakos", "Kajiado"] },
+      { eyebrow: "Investors", title: "Invest With Confidence", items: ["ROI Calculator", "Investment Guide", "Payment Plans", "Customer Testimonials"] },
+      { eyebrow: "Community Impact", title: "Business That Transforms Lives", muted: true, blurb: "A percentage of every property sale supports the wider work of 54 Global Afrikan — linking business success with community transformation.", items: ["Education", "Widows", "Orphans", "Church missions", "Youth empowerment"] },
+    ],
+    closingNote: {
+      title: "A unique investment story",
+      body: "This is a unique feature that links business success with community transformation — every plot you own helps write a better future for a Kenyan family.",
+    },
   },
   "praise-adventures-tours": {
     name: "Praise Adventures & Tours",
@@ -55,6 +94,20 @@ const orgs: Record<string, Org> = {
     tagline: "Travel that connects the world to the work.",
     description: "Praise Adventures & Tours organizes mission trips, pilgrimages, and cultural travel — connecting international friends to Kenya and enabling Kenyans to encounter the wider Church.",
     details: ["Short-term mission trips", "Kenya safari and heritage tours", "Pilgrimages to the Holy Land", "Youth and church group travel", "Group logistics, visas, and hospitality"],
+    themeQuote: "Discover Kenya. Experience Africa. Travel With Purpose.",
+    pageMenu: ["Home", "Safaris", "Holiday Packages", "Pilgrimage Tours", "School Trips", "Corporate Travel", "Visa Services", "Hotels", "Car Hire", "Gallery", "Book Now"],
+    hero: {
+      title: "Explore God's Beautiful Creation.",
+      ctas: ["Book Safari", "Holiday Packages", "Church Tours"],
+    },
+    extraSections: [
+      { eyebrow: "Tour Packages", title: "Destinations We Love", items: ["Maasai Mara", "Amboseli", "Tsavo", "Diani", "Watamu", "Naivasha", "Nakuru", "Mt Kenya", "Uganda", "Tanzania", "Rwanda", "Israel Pilgrimage"] },
+      { eyebrow: "Services", title: "Travel Made Simple", muted: true, items: ["Hotel Booking", "Air Ticketing", "Visa Assistance", "Airport Transfers", "Travel Insurance", "Conference Travel", "School Excursions", "Mission Trips"] },
+    ],
+    closingNote: {
+      title: "Mission Tourism",
+      body: "Every trip booked with Praise Adventures contributes to community transformation by helping educate vulnerable children, supporting widows, and funding outreach programs through 54 Global Afrikan. This gives travelers a purpose beyond sightseeing.",
+    },
   },
   "54-global-foundation": {
     name: "54 Global Foundation",
@@ -111,6 +164,46 @@ function OrgPage() {
   return (
     <>
       <PageHero eyebrow={org.type} title={org.name} description={org.tagline} photoLabel={org.name} tone="green" />
+
+      {org.themeQuote && (
+        <section className="border-b border-border/60 bg-secondary/40">
+          <div className="container-page py-6 text-center">
+            <p className="font-serif text-lg md:text-xl italic text-foreground/80">
+              "{org.themeQuote}"
+            </p>
+          </div>
+        </section>
+      )}
+
+      {org.pageMenu && (
+        <div className="border-b border-border/60">
+          <div className="container-page py-3 flex flex-wrap gap-x-5 gap-y-2 justify-center text-sm text-muted-foreground">
+            {org.pageMenu.map((m: string) => (
+              <span key={m} className="hover:text-foreground transition-colors">{m}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {org.hero && (
+        <section className="py-16 md:py-20 bg-gradient-to-b from-background to-secondary/20">
+          <div className="container-page text-center max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">{org.hero.title}</h2>
+            {org.hero.subtitle && (
+              <p className="mt-5 text-lg md:text-xl text-muted-foreground">{org.hero.subtitle}</p>
+            )}
+            {org.hero.ctas && org.hero.ctas.length > 0 && (
+              <div className="mt-8 flex flex-wrap gap-3 justify-center">
+                {org.hero.ctas.map((cta: string, i: number) => (
+                  <Button key={cta} asChild size="lg" variant={i === 0 ? "default" : "outline"} className="gap-2">
+                    <Link to="/contact">{cta} <ArrowRight className="h-4 w-4" /></Link>
+                  </Button>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
@@ -205,6 +298,26 @@ function OrgPage() {
             </Button>
           </div>
         </Section>
+      )}
+
+      {org.extraSections?.map((s: ExtraSection) => (
+        <Section key={s.title} eyebrow={s.eyebrow} title={s.title} muted={s.muted}>
+          {s.blurb && (
+            <p className="mb-6 text-muted-foreground max-w-3xl">{s.blurb}</p>
+          )}
+          <ChipGrid items={s.items} />
+        </Section>
+      ))}
+
+      {org.closingNote && (
+        <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+          <div className="container-page text-center max-w-3xl mx-auto">
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-4">{org.closingNote.title}</div>
+            <p className="font-serif text-2xl md:text-3xl leading-relaxed">
+              {org.closingNote.body}
+            </p>
+          </div>
+        </section>
       )}
 
       <CTABand />
