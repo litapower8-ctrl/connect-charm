@@ -10,14 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgrammesRouteImport } from './routes/programmes'
+import { Route as OrganizationsRouteImport } from './routes/organizations'
 import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OrganizationsIndexRouteImport } from './routes/organizations.index'
+import { Route as OrganizationsSlugRouteImport } from './routes/organizations.$slug'
 
 const ProgrammesRoute = ProgrammesRouteImport.update({
   id: '/programmes',
   path: '/programmes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganizationsRoute = OrganizationsRouteImport.update({
+  id: '/organizations',
+  path: '/organizations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImpactRoute = ImpactRouteImport.update({
@@ -40,13 +48,26 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrganizationsIndexRoute = OrganizationsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => OrganizationsRoute,
+} as any)
+const OrganizationsSlugRoute = OrganizationsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => OrganizationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
   '/impact': typeof ImpactRoute
+  '/organizations': typeof OrganizationsRouteWithChildren
   '/programmes': typeof ProgrammesRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/organizations/': typeof OrganizationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +75,8 @@ export interface FileRoutesByTo {
   '/community': typeof CommunityRoute
   '/impact': typeof ImpactRoute
   '/programmes': typeof ProgrammesRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/organizations': typeof OrganizationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +84,41 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
   '/impact': typeof ImpactRoute
+  '/organizations': typeof OrganizationsRouteWithChildren
   '/programmes': typeof ProgrammesRoute
+  '/organizations/$slug': typeof OrganizationsSlugRoute
+  '/organizations/': typeof OrganizationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/community' | '/impact' | '/programmes'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/community'
+    | '/impact'
+    | '/organizations'
+    | '/programmes'
+    | '/organizations/$slug'
+    | '/organizations/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/community' | '/impact' | '/programmes'
-  id: '__root__' | '/' | '/about' | '/community' | '/impact' | '/programmes'
+  to:
+    | '/'
+    | '/about'
+    | '/community'
+    | '/impact'
+    | '/programmes'
+    | '/organizations/$slug'
+    | '/organizations'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/community'
+    | '/impact'
+    | '/organizations'
+    | '/programmes'
+    | '/organizations/$slug'
+    | '/organizations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +126,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CommunityRoute: typeof CommunityRoute
   ImpactRoute: typeof ImpactRoute
+  OrganizationsRoute: typeof OrganizationsRouteWithChildren
   ProgrammesRoute: typeof ProgrammesRoute
 }
 
@@ -86,6 +137,13 @@ declare module '@tanstack/react-router' {
       path: '/programmes'
       fullPath: '/programmes'
       preLoaderRoute: typeof ProgrammesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organizations': {
+      id: '/organizations'
+      path: '/organizations'
+      fullPath: '/organizations'
+      preLoaderRoute: typeof OrganizationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/impact': {
@@ -116,14 +174,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/organizations/': {
+      id: '/organizations/'
+      path: '/'
+      fullPath: '/organizations/'
+      preLoaderRoute: typeof OrganizationsIndexRouteImport
+      parentRoute: typeof OrganizationsRoute
+    }
+    '/organizations/$slug': {
+      id: '/organizations/$slug'
+      path: '/$slug'
+      fullPath: '/organizations/$slug'
+      preLoaderRoute: typeof OrganizationsSlugRouteImport
+      parentRoute: typeof OrganizationsRoute
+    }
   }
 }
+
+interface OrganizationsRouteChildren {
+  OrganizationsSlugRoute: typeof OrganizationsSlugRoute
+  OrganizationsIndexRoute: typeof OrganizationsIndexRoute
+}
+
+const OrganizationsRouteChildren: OrganizationsRouteChildren = {
+  OrganizationsSlugRoute: OrganizationsSlugRoute,
+  OrganizationsIndexRoute: OrganizationsIndexRoute,
+}
+
+const OrganizationsRouteWithChildren = OrganizationsRoute._addFileChildren(
+  OrganizationsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CommunityRoute: CommunityRoute,
   ImpactRoute: ImpactRoute,
+  OrganizationsRoute: OrganizationsRouteWithChildren,
   ProgrammesRoute: ProgrammesRoute,
 }
 export const routeTree = rootRouteImport

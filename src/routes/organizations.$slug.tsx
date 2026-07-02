@@ -78,7 +78,7 @@ function OrgPage() {
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>{org.description}</p>
             <ul className="space-y-3 text-base">
-              {org.details.map((d) => (
+              {org.details.map((d: string) => (
                 <li key={d} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" /> {d}</li>
               ))}
             </ul>
