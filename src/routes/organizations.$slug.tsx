@@ -178,7 +178,7 @@ function OrgPage() {
       {org.pageMenu && (
         <div className="border-b border-border/60">
           <div className="container-page py-3 flex flex-wrap gap-x-5 gap-y-2 justify-center text-sm text-muted-foreground">
-            {org.pageMenu.map((m) => (
+            {org.pageMenu.map((m: string) => (
               <span key={m} className="hover:text-foreground transition-colors">{m}</span>
             ))}
           </div>
@@ -194,7 +194,7 @@ function OrgPage() {
             )}
             {org.hero.ctas && org.hero.ctas.length > 0 && (
               <div className="mt-8 flex flex-wrap gap-3 justify-center">
-                {org.hero.ctas.map((cta, i) => (
+                {org.hero.ctas.map((cta: string, i: number) => (
                   <Button key={cta} asChild size="lg" variant={i === 0 ? "default" : "outline"} className="gap-2">
                     <Link to="/contact">{cta} <ArrowRight className="h-4 w-4" /></Link>
                   </Button>
@@ -300,7 +300,7 @@ function OrgPage() {
         </Section>
       )}
 
-      {org.extraSections?.map((s) => (
+      {org.extraSections?.map((s: ExtraSection) => (
         <Section key={s.title} eyebrow={s.eyebrow} title={s.title} muted={s.muted}>
           {s.blurb && (
             <p className="mb-6 text-muted-foreground max-w-3xl">{s.blurb}</p>
